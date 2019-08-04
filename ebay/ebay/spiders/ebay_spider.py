@@ -17,10 +17,6 @@ class EbaySpiderSpider(scrapy.Spider):
         links = response.css("a.ellipsis::attr(href)").extract()
         for link in links:
             yield scrapy.Request(EbaySpiderSpider.base_url + link, callback = self.parse_listing)
-        #for link in links:
-            #yield {
-                #"link": link
-            #}
 
         next_page = "https://www.ebay-kleinanzeigen.de/s-autos/seite:" + str(EbaySpiderSpider.page_number) + "/c216"
         if EbaySpiderSpider.page_number <= 50:
