@@ -21,3 +21,5 @@ class EbayItem(scrapy.Item):
     year_of_registration = scrapy.Field()
 
 
+
+
