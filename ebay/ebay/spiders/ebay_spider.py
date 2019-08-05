@@ -31,16 +31,16 @@ class EbaySpiderSpider(scrapy.Spider):
         if data:
             ls = json.loads(data[0])
 
-        item["brand"] = ls["Marke"]
-        item["car_type"] = ls["Fahrzeugtyp"]
-        item["color"] = ls["Aussenfarbe"]
-        item["fuel_type"] = ls["Kraftstoffart"]
-        item["gear_type"] = ls["Getriebe"]
-        item["mileage"] = ls["Kilometerstand"]
-        item["model"] = ls["Modell"]
-        item["price"] = ls["Preis"]
-        item["ps"] = ls["Leistung__PS_"]
-        item["year_of_registration"] = ls["Erstzulassungsjahr"]
+        item["brand"] = ls.get("Marke", "")
+        item["car_type"] = ls.get("Fahrzeugtyp", "")
+        item["color"] = ls.get("Aussenfarbe", "")
+        item["fuel_type"] = ls.get("Kraftstoffart", "")
+        item["gear_type"] = ls.get("Getriebe", "")
+        item["mileage"] = ls.get("Kilometerstand", "")
+        item["model"] = ls.get("Modell", "")
+        item["price"] = ls.get("Preis", "")
+        item["ps"] = ls.get("Leistung__PS_", "")
+        item["year_of_registration"] = ls.get("Erstzulassungsjahr", "")
 
         yield item
 
